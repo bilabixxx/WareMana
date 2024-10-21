@@ -13,11 +13,7 @@ const props = defineProps({
   }
 });
 
-const maxFileSize = 5000000; // Imposta la dimensione massima del file (5MB)
 
-const rules = [
-  file => !file || file.size < maxFileSize || 'La dimensione del file deve essere inferiore a 5 MB!'
-];
 
 // Stato per il dialog e il form
 const isDialogVisible = ref(false);
@@ -219,8 +215,8 @@ const onSubmit = async () => {
             <VCol cols="12">
               <h2 class="text-h6 font-weight-medium mb-5">Carica il file</h2>
               <!-- Campo di input per il caricamento del file -->
-              <AppFileInput show-size v-model="formData.file" :rules="rules" label="Carica documento"
-                accept=".pdf,.doc,.docx,.txt" prepend-inner-icon="bx-upload" @blur="onFileInputBlur" />
+              <AppFileInput show-size v-model="formData.file" label="Carica documento" accept=".pdf,.doc,.docx,.txt"
+                prepend-inner-icon="bx-upload" @blur="onFileInputBlur" />
             </VCol>
 
             <VCol cols="12" class="mt-4">
